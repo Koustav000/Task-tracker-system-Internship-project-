@@ -1,0 +1,1 @@
+Developed and deployed a full-stack Task Tracking System enabling Admin and User role-based task management, progress tracking, authentication, and database-driven operations using React, Spring Boot, and MySQL.
