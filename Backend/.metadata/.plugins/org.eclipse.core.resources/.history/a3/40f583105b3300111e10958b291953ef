@@ -1,0 +1,67 @@
+package com.live.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
+
+import com.live.DTO.ErrorResponse;
+import com.live.DTO.LoginRequest;
+import com.live.DTO.MessageResponse;
+import com.live.DTO.RegisterRequest;
+import com.live.Model.User;
+import com.live.Security.AuthResponse;
+import com.live.Security.JwtUtil;
+import com.live.Service.UserService;
+
+import jakarta.validation.Valid;
+
+@RestController
+@RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
+public class UserController {
+
+    @Autowired
+    private UserService service;
+    @Autowired
+    private JwtUtil jwtUtil;
+
+    @Autowired
+    private AuthenticationManager authManager;
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest request) {
+
+        try {
+            // ✅ Get user from service
+            User user = service.login(request.getUserName(), request.getPassword());
+
+            String token = jwtUtil.generateToken(request.getUserName());
+
+            // ✅ SEND ROLE ALSO
+            return ResponseEntity.ok(
+                new AuthResponse(token, user.getRole())
+            );
+
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(new ErrorResponse(e.getMessage()));
+        }
+    }
+    
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@Valid @RequestBody RegisterRequest request) {
+
+        try {
+            service.register(request);
+
+            return ResponseEntity.ok(new MessageResponse("User registered successfully"));
+
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new ErrorResponse(e.getMessage()));
+        }
+    }
+}

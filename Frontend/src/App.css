@@ -1,0 +1,27 @@
+@charset "UTF-8";
+body{
+	margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background-color:#bfc6c7;
+font-family:Arial;
+}
+form{
+padding:80px;
+border:1px solid #ccc;
+background-color:#fafafa;
+border-radius:8px;
+}
+input[type="text"],
+input[type="password"],
+input[type="submit"]
+{
+display:flex;
+margin:10px 0;
+padding:3px;
+font-size:16px;
+border-radius:3px;
+box-sizing:border-box;
+}

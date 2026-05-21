@@ -1,0 +1,151 @@
+/* Reset + font */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background + center layout */
+.auth-container {
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* Glass card */
+.auth-form {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    padding: 45px 35px;
+    border-radius: 20px;
+    width: 340px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    color: white;
+    transition: 0.3s;
+}
+
+/* Hover lift */
+.auth-form:hover {
+    transform: translateY(-5px);
+}
+
+/* Heading */
+.auth-form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Inputs */
+.auth-form input {
+    width: 91%;
+    padding: 12px 15px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 14px;
+}
+
+/* Placeholder color */
+.auth-form input::placeholder {
+    color: #ddd;
+}
+
+/* Input focus effect */
+.auth-form input:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Button */
+.auth-form button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(to right, #ff7a18, #ffb347);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button hover */
+.auth-form button:hover {
+    transform: scale(1.07);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Toggle text */
+.toggle-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Toggle link */
+.toggle-text span {
+    color: #ffd700;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* Toggle hover */
+.toggle-text span:hover {
+    text-decoration: underline;
+}
+/* 🔥 TOAST BASE */
+.toast {
+    position: fixed;       /* MUST be fixed */
+    top: 20px;
+    right: 20px;           /* 👈 right side */
+    
+    min-width: 260px;
+    max-width: 320px;
+    padding: 14px 16px;
+    border-radius: 10px;
+
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+
+    z-index: 99999;        /* 👈 ensure above everything */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+
+    animation: slideIn 0.4s ease, fadeOut 0.4s ease 2.6s forwards;
+}
+
+/* ✅ SUCCESS */
+.toast-success {
+    background: linear-gradient(135deg, #28a745, #218838);
+}
+
+/* ❌ ERROR */
+.toast-error {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+/* ✨ SLIDE IN FROM RIGHT */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(120%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ✨ FADE OUT */
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateX(120%);
+    }
+}

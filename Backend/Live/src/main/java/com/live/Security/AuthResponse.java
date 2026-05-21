@@ -1,0 +1,19 @@
+package com.live.Security;
+public class AuthResponse {
+
+    private String token;
+    private String role; // ✅ ADD THIS
+
+    public AuthResponse(String token, String role) {
+        this.token = token;
+        this.role = role;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public String getRole() {
+        return role;
+    }
+}
