@@ -21,7 +21,7 @@ function AuthPage() {
         try {
             if (isLogin) {
                 // LOGIN
-                const res = await axios.post("http://localhost:8080/api/login", {
+                const res = await axios.post("http://3.111.23.219:8080/api/login", {
                     userName,
                     password
                 });
@@ -55,7 +55,7 @@ function AuthPage() {
                     return;
                 }
 
-                const res = await axios.post("http://localhost:8080/api/register", {
+                const res = await axios.post("http://3.111.23.219:8080/api/register", {
                     userName,
                     email,
                     password

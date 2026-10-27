@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "http://3.111.23.219:8080";
 
 const STATUS_COLORS = {
   COMPLETED:   { bg: "#eaf3de", color: "#3b6d11", label: "Completed" },
